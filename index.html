@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Encanta Baby Fotografia</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background-color: #fdfbf9;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f8f4f0;
+            border-bottom: 1px solid #f0e9e4;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: #9e8a78;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .hero {
+            position: relative;
+            height: 40vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('/api/placeholder/600/400') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #73625a;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        .form-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #9e8a78;
+            border-bottom: 1px solid #f0e9e4;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #73625a;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e6e1dd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #555;
+            background-color: #fefefe;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .radio-group {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .radio-label {
+            margin-right: 15px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .conditional-fields {
+            margin-top: 15px;
+            padding-left: 15px;
+            border-left: 2px solid #f0e9e4;
+        }
+
+        .terms {
+            background-color: #f8f4f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            border: 1px solid #e6e1dd;
+        }
+
+        .terms p {
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #9e8a78;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #8a7868;
+        }
+
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .image-gallery {
+            display: flex;
+            overflow-x: auto;
+            margin: 20px 0;
+            gap: 10px;
+            padding: 10px 0;
+        }
+
+        .gallery-image {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 6px;
+        }
+
+        footer {
+            background-color: #f8f4f0;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #f0e9e4;
+        }
+
+        .contact-info {
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .contact-item i {
+            margin-right: 8px;
+            color: #9e8a78;
+        }
+
+        .emergency {
+            font-weight: 500;
+            color: #d69b97;
+            margin-top: 10px;
+        }
+
+        .social-media {
+            margin-top: 15px;
+        }
+
+        .social-media a {
+            color: #9e8a78;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #73625a;
+        }
+
+        .whatsapp-fallback {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 6px;
+            border: 1px solid #9e8a78;
+        }
+
+        .whatsapp-fallback a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #9e8a78;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .whatsapp-fallback a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Me Encanta Baby</div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Capturando Momentos Únicos</h1>
+            <p class="subtitle">Fotografia especializada em recém-nascidos e momentos especiais</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="image-gallery">
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/MvjGX30.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/qTDfFW7.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/ZCiuRzk.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/VZP6jKl.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/pzhJCgd.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/VvtqBZQ.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/sOUtpKn.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/M9it1Ft.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/SGkDMlq.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/GK6vq6v.jpeg')"></div>
+            <div class="gallery-image" style="background-image: url('https://i.imgur.com/SlV1QmS.jpeg')"></div>
+        </div>
+
+        <div class="form-container">
+            <form id="bookingForm">
+                <div class="form-section">
+                    <h2 class="form-title">Informações da Gestante</h2>
+                    <div class="form-group">
+                        <label for="nomeGestante">Nome Completo da Gestante: *</label>
+                        <input type="text" id="nomeGestante" name="nomeGestante" placeholder="Nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF: *</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required maxlength="14">
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço: *</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade, CEP"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email: *</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp: *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(xx) xxxxx-xxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeFamiliar">Nome de um Familiar em Caso de Emergência: *</label>
+                        <input type="text" id="nomeFamiliar" name="nomeFamiliar" placeholder="Nome completo do familiar"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contatoFamiliar">Contato do Familiar: *</label>
+                        <input type="tel" id="contatoFamiliar" name="contatoFamiliar" placeholder="(xx) xxxxx-xxxx"
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="form-title">Informações do Parto</h2>
+                    <div class="form-group">
+                        <label for="dataPrevista">Data Prevista para o Nascimento: *</label>
+                        <input type="date" id="dataPrevista" name="dataPrevista" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="viaParto">Via de Parto: *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="viaParto" value="normal" required> Parto Normal
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="viaParto" value="cesarea" required> Cesárea
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeBebe">Nome do Bebê:</label>
+                        <input type="text" id="nomeBebe" name="nomeBebe" placeholder="Nome escolhido para o bebê">
+                    </div>
+                    <div class="form-group">
+                        <label for="obstetra">Nome do Obstetra(a): *</label>
+                        <input type="text" id="obstetra" name="obstetra" placeholder="Nome do médico obstetra" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hospital">Nome do Hospital: *</label>
+                        <input type="text" id="hospital" name="hospital" placeholder="Nome do hospital" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="form-title">Selecione os Serviços</h2>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="coberturaFotografica" name="servicos"
+                                value="Cobertura Fotográfica">
+                            <label for="coberturaFotografica">Cobertura Fotográfica</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="videoClip" name="servicos" value="Vídeo Clip do Parto">
+                            <label for="videoClip">Vídeo Clip do Parto</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="ensaioDiaSeguinte" name="servicos"
+                                value="Ensaio no Dia Seguinte do Parto">
+                            <label for="ensaioDiaSeguinte">Ensaio no Dia Seguinte do Parto</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="saidaMaternidade" name="servicos" value="Saída da Maternidade">
+                            <label for="saidaMaternidade">Saída da Maternidade</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="form-title">Termos e Condições</h2>
+                    <div class="terms">
+                        <p><strong>CONTRATO DE PRESTAÇÃO DE SERVIÇOS FOTOGRÁFICOS - ME ENCANTA BABY FOTOGRAFIA</strong>
+                        </p>
+
+                        <p><strong>1. OBJETO:</strong> O presente contrato tem por objeto a prestação de serviços
+                            fotográficos especializados em partos e recém-nascidos, realizado pela ME ENCANTA BABY
+                            FOTOGRAFIA.</p>
+
+                        <p><strong>2. AGENDAMENTO E DISPONIBILIDADE:</strong> A data será confirmada mediante pagamento
+                            da taxa de reserva (não reembolsável). Para partos, a fotógrafa estará disponível 24h a
+                            partir da 37ª semana de gestação, respeitando as condições do hospital e equipe médica.</p>
+
+                        <p><strong>3. LIMITAÇÕES TÉCNICAS E EQUIPAMENTOS:</strong> A contratante está ciente de que
+                            podem ocorrer falhas técnicas imprevistas nos equipamentos fotográficos durante o evento
+                            (defeitos de câmera, cartão de memória, bateria, flash, etc.). Embora a fotógrafa utilize
+                            equipamentos profissionais e leve equipamentos reserva, eventuais falhas técnicas que
+                            resultem em perda parcial ou total das imagens não implicarão em responsabilidade civil ou
+                            reembolso integral, sendo limitado o ressarcimento a 50% do valor pago.</p>
+
+                        <p><strong>4. CONTRATEMPOS E CAUSAS NATURAIS:</strong> A ME ENCANTA BABY FOTOGRAFIA não se
+                            responsabiliza por contratempos decorrentes de:</p>
+                        <ul>
+                            <li>- Proibição do hospital ou equipe médica para entrada na sala de parto;</li>
+                            <li>- Emergências médicas que impeçam a realização do trabalho;</li>
+                            <li>- Condições climáticas extremas que impeçam o deslocamento;</li>
+                            <li>- Situações de força maior (acidentes etc.);</li>
+                            <li>- Partos muito rápidos onde não há tempo hábil para chegada da fotógrafa.</li>
+                        </ul>
+
+                        <p><strong>5. DIREITOS DE IMAGEM:</strong> O contratante autoriza a ME ENCANTA BABY FOTOGRAFIA a
+                            utilizar as imagens produzidas para fins de divulgação em seu portfólio, redes sociais,
+                            website e materiais promocionais, respeitando a integridade e dignidade dos fotografados.
+                        </p>
+
+                        <p><strong>6. PUBLICAÇÃO NO INSTAGRAM:</strong> O contratante autoriza especificamente a
+                            publicação de imagens selecionadas no perfil @meencantababy do Instagram.</p>
+
+                        <p><strong>7. ENTREGA DAS FOTOGRAFIAS:</strong> As fotografias serão entregues em formato
+                            digital, após processo de edição, no prazo de até 15 dias para registros de parto e até 30
+                            dias para outros eventos. A quantidade de fotos entregues varia conforme o tempo de duração
+                            do evento e momentos capturados.</p>
+
+                        <p><strong>8. PAGAMENTO:</strong> O pagamento será realizado conforme acordado previamente,
+                            sendo 50% no ato da contratação e 50% no dia do evento/sessão, ou conforme plano específico
+                            acordado.</p>
+
+                        <p><strong>9. CANCELAMENTO:</strong> Em caso de cancelamento pelo contratante, a taxa de reserva
+                            não será devolvida. Cancelamentos com menos de 7 dias de antecedência podem implicar em
+                            cobrança integral do serviço.</p>
+
+                        <p><strong>10. LIMITAÇÕES DO AMBIENTE HOSPITALAR:</strong> O trabalho está sujeito às regras e
+                            protocolos do hospital, podendo haver limitações de acesso, uso de flash, posicionamento da
+                            fotógrafa, entre outras restrições que podem impactar na qualidade ou quantidade de
+                            registros.</p>
+
+                        <p><strong>11. ACEITAÇÃO DOS RISCOS:</strong> Ao contratar os serviços, o cliente declara estar
+                            ciente de todas as limitações técnicas e naturais mencionadas neste contrato, assumindo os
+                            riscos inerentes à atividade fotográfica hospitalar.</p>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="termos" name="termos" required>
+                        <label for="termos">Li e concordo com todos os termos e condições acima, incluindo as limitações
+                            técnicas, contratempos por causas naturais, e autorização para uso das imagens</label>
+                    </div>
+                </div>
+
+                
+                <button type="submit" class="submit-btn">Enviar Formulário</button>
+
+                <a id="botaoWhatsApp" class="submit-btn" style="display: none; margin-top: 15px;" target="_blank">
+                    📱 Confirmar agendamento via WhatsApp
+                </a>
+
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i>📱</i> WhatsApp: (81) 98712-6288
+            </div>
+            <div class="contact-item social-media">
+                <i>📸</i> Instagram: <a href="https://instagram.com/meencantababy" target="_blank">@meencantababy</a>
+            </div>
+            <div class="contact-item emergency">
+                <i>🔔</i> Em caso de emergência: Atendimento 24 horas
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para formatar CPF
+        function formatarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, '');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            return cpf;
+        }
+
+        // Função para validar CPF
+        function validarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, '');
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+            let soma = 0;
+            for (let i = 0; i < 9; i++) {
+                soma += parseInt(cpf.charAt(i)) * (10 - i);
+            }
+            let resto = 11 - (soma % 11);
+            let dv1 = resto < 2 ? 0 : resto;
+
+            soma = 0;
+            for (let i = 0; i < 10; i++) {
+                soma += parseInt(cpf.charAt(i)) * (11 - i);
+            }
+            resto = 11 - (soma % 11);
+            let dv2 = resto < 2 ? 0 : resto;
+
+            return dv1 === parseInt(cpf.charAt(9)) && dv2 === parseInt(cpf.charAt(10));
+        }
+
+        // Função para formatar telefone
+        function formatarTelefone(telefone) {
+            telefone = telefone.replace(/\D/g, '');
+            if (telefone.length === 11) {
+                telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            } else if (telefone.length === 10) {
+                telefone = telefone.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+            }
+            return telefone;
+        }
+
+        function coletarDadosFormulario() {
+            const formData = new FormData(document.getElementById('bookingForm'));
+            const dadosColetados = {};
+
+            // Converter FormData para objeto regular
+            for (let [key, value] of formData.entries()) {
+                if (key === 'servicos') {
+                    // Tratar checkboxes de serviços
+                    if (!dadosColetados[key]) dadosColetados[key] = [];
+                    dadosColetados[key].push(value);
+                } else {
+                    dadosColetados[key] = value;
+                }
+            }
+
+            // Converter array de serviços em string
+            if (dadosColetados.servicos) {
+                dadosColetados.servicos = dadosColetados.servicos.join(', ');
+            } else {
+                dadosColetados.servicos = 'Nenhum serviço selecionado';
+            }
+
+            // Adicionar data de envio
+            dadosColetados['dataEnvio'] = new Date().toLocaleString('pt-BR');
+
+            return dadosColetados;
+        }
+
+        // Função para criar mensagem do WhatsApp
+        function criarMensagemWhatsApp(dados) {
+            return `*Agendamento Me Encanta Baby*
+
+*Dados da Gestante:*
+Nome: ${dados.nomeGestante}
+CPF: ${dados.cpf}
+Endereço: ${dados.endereco}
+Email: ${dados.email}
+WhatsApp: ${dados.whatsapp}
+
+*Contato de Emergência:*
+Nome: ${dados.nomeFamiliar}
+Contato: ${dados.contatoFamiliar}
+
+*Informações do Parto:*
+Data Prevista: ${dados.dataPrevista}
+Via de Parto: ${dados.viaParto}
+Nome do Bebê: ${dados.nomeBebe || 'Não informado'}
+Obstetra: ${dados.obstetra}
+Hospital: ${dados.hospital}
+
+*Serviços Selecionados:*
+${dados.servicos}
+
+*Data de Envio:* ${dados.dataEnvio}`;
+        }
+
+        // Validação e envio do formulário
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validação básica
+            if (!document.getElementById('termos').checked) {
+                alert('Por favor, aceite os termos e condições para continuar.');
+                return;
+            }
+
+            // Validação do CPF
+            const cpfInput = document.getElementById('cpf');
+            if (!validarCPF(cpfInput.value)) {
+                alert('Por favor, digite um CPF válido.');
+                cpfInput.focus();
+                return;
+            }
+
+            // Verificar se pelo menos um serviço foi selecionado
+            const servicosSelecionados = document.querySelectorAll('input[name="servicos"]:checked');
+            if (servicosSelecionados.length === 0) {
+                alert('Por favor, selecione pelo menos um serviço.');
+                return;
+            }
+
+            const dadosFormulario = coletarDadosFormulario();
+
+            // URL do Google Apps Script (substitua pela sua URL quando configurar)
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbweLMRVqaLdyvt88q7qlxXolbPZYskF0l2lTyIkacpzScqzGzqI-CzhwBrbg_t7Wc8cAQ/exec';
+
+            // Mostrar loading
+            const submitButton = document.querySelector('.submit-btn');
+            const buttonText = submitButton.textContent;
+            submitButton.textContent = 'Enviando...';
+            submitButton.disabled = true;
+
+            // Tentar enviar para o Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new URLSearchParams(dadosFormulario)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('✅ Agendamento enviado com sucesso! Você receberá um email de confirmação em breve.');
+                        this.reset();
+
+                        // Exibir botão do WhatsApp com os dados preenchidos
+                        const botaoWhatsApp = document.getElementById('botaoWhatsApp');
+                        botaoWhatsApp.href = `https://wa.me/5581987126288?text=${encodeURIComponent(criarMensagemWhatsApp(dadosFormulario))}`;
+                        botaoWhatsApp.style.display = 'inline-block';
+
+                        // Envia os dados automaticamente para o seu WhatsApp
+                        window.open(`https://wa.me/5581987126288?text=${encodeURIComponent(criarMensagemWhatsApp(dadosFormulario))}`, '_blank');
+                    } else {
+                        throw new Error('Erro na resposta do servidor');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+
+                    // Fallback para WhatsApp
+                    const whatsappMessage = criarMensagemWhatsApp(dadosFormulario);
+                    const whatsappURL = `https://wa.me/5581987126288?text=${encodeURIComponent(whatsappMessage)}`;
+
+                    // Criar elemento de fallback
+                    const existingFallback = document.querySelector('.whatsapp-fallback');
+                    if (existingFallback) {
+                        existingFallback.remove();
+                    }
+
+                    const fallbackDiv = document.createElement('div');
+                    fallbackDiv.className = 'whatsapp-fallback';
+                    fallbackDiv.innerHTML = `
+                    <p><strong>⚠️ Problema no envio automático!</strong></p>
+                    <p>Não foi possível enviar o formulário automaticamente. Clique no link abaixo para enviar seus dados via WhatsApp:</p>
+                    <a href="${whatsappURL}" target="_blank">📱 Enviar via WhatsApp</a>
+                `;
+
+                    submitButton.parentNode.appendChild(fallbackDiv);
+                })
+                .finally(() => {
+                    submitButton.textContent = buttonText;
+                    submitButton.disabled = false;
+                });
+        });
+
+        // Validação em tempo real do formulário
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('bookingForm');
+            const inputs = form.querySelectorAll('input[required]');
+
+            // Validação em tempo real
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    if (this.value.trim() === '') {
+                        this.style.borderColor = '#d69b97';
+                    } else {
+                        this.style.borderColor = '#e6e1dd';
+                    }
+                });
+            });
+
+            // Formatação automática do CPF
+            const cpfInput = document.getElementById('cpf');
+            cpfInput.addEventListener('input', function () {
+                this.value = formatarCPF(this.value);
+            });
+
+            // Formatação automática dos telefones
+            const whatsappInput = document.getElementById('whatsapp');
+            const contatoFamiliarInput = document.getElementById('contatoFamiliar');
+
+            [whatsappInput, contatoFamiliarInput].forEach(input => {
+                input.addEventListener('input', function () {
+                    this.value = formatarTelefone(this.value);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
